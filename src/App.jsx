@@ -8,7 +8,7 @@ function App() {
   const signOutRedirect = () => {
     const clientId = "67i5a8nlr96n5e6n7t3244mjmv";
     const logoutUri = "http://localhost:5173"; 
-    const cognitoDomain = "https://amazoncognito.com";
+    const cognitoDomain = "http://cognito-idp.us-east-1.amazonaws.com/us-east-1_xYTGOQsnI";
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
@@ -17,7 +17,8 @@ function App() {
     setStatus("Enviando solicitud al API Gateway...");
     
     // Dejamos esta URL lista para cuando creemos el API Gateway de forma manual
-    const API_URL = "AQUÍ_IRÁ_TU_URL_DE_API_GATEWAY/informes"; 
+    const API_URL = `${import.meta.env.VITE_API_GATEWAY_URL}/informes`;
+
 
     try {
       const response = await fetch(API_URL, {
