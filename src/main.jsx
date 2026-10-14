@@ -8,7 +8,9 @@ import { AuthProvider } from "react-oidc-context";
 const cognitoAuthConfig = {
   authority: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_xYTGOQsnI",
   client_id: "67i5a8nlr96n5e6n7t3244mjmv",
-  redirect_uri: "http://localhost:5173",
+    // Esta propiedad tomará automáticamente http://localhost:5173 o la URL de Netlify según dónde esté abierta la página
+  redirect_uri: window.location.origin,
+
   response_type: "code",
   scope: "phone openid email",
 };
